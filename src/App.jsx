@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import InputSection from "./components/InputSection";
+import Table from "./components/Table";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         id="header"
       />
       <InputSection />
+      <Table />
     </>
   );
 }
