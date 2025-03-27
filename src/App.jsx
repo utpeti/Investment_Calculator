@@ -18,6 +18,8 @@ function App() {
     });
   }
 
+  const inputIsValid = investmentValues.duration >= 1;
+
   const tableHeaders = [
     "Year",
     "Investment Value",
@@ -35,7 +37,14 @@ function App() {
         id="header"
       />
       <InputSection values={investmentValues} handleChange={handleChange} />
-      <Table headers={tableHeaders} values={investmentValues} />
+      {inputIsValid && (
+        <Table headers={tableHeaders} values={investmentValues} />
+      )}
+      {!inputIsValid && (
+        <div>
+          <p>Duration must be bigger than 1!</p>
+        </div>
+      )}
     </>
   );
 }
