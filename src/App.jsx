@@ -19,8 +19,6 @@ function App() {
     });
   }
 
-  const tableValues = calculateInvestmentResults(investmentValues);
-
   const tableHeaders = [
     "Year",
     "Investment Value",
@@ -38,7 +36,7 @@ function App() {
         id="header"
       />
       <InputSection values={investmentValues} handleChange={handleChange} />
-      <Table headers={tableHeaders} rows={tableValues} />
+      <Table headers={tableHeaders} values={investmentValues} />
     </>
   );
 }

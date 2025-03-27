@@ -1,6 +1,8 @@
-import { formatter } from "../util/investment";
+import { calculateInvestmentResults, formatter } from "../util/investment";
 
-export default function Table({ headers, rows }) {
+export default function Table({ headers, values }) {
+  const rows = calculateInvestmentResults(values);
+
   return (
     <table id="result">
       <thead>
@@ -13,7 +15,7 @@ export default function Table({ headers, rows }) {
       {
         <tbody>
           {rows.map((row) => (
-            <tr>
+            <tr key={row.year}>
               <td>{row.year}</td>
               <td>{formatter.format(row.valueEndOfYear)}</td>
               <td>{formatter.format(row.interest)}</td>
