@@ -1,13 +1,11 @@
-export default function Table() {
+export default function Table({ headers }) {
   return (
     <table id="result">
       <thead>
         <tr>
-          <th>Year</th>
-          <th>Investment value</th>
-          <th>Interest (Year)</th>
-          <th>Total Interest</th>
-          <th>Duration</th>
+          {headers.map((header) => (
+            <th>{header}</th>
+          ))}
         </tr>
       </thead>
     </table>

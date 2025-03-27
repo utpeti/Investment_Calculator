@@ -3,6 +3,13 @@ import InputSection from "./components/InputSection";
 import Table from "./components/Table";
 
 function App() {
+  const tableHeaders = [
+    "Year",
+    "Interest (Year)",
+    "Total Interest",
+    "Duration",
+  ];
+
   return (
     <>
       <Header
@@ -12,7 +19,7 @@ function App() {
         id="header"
       />
       <InputSection />
-      <Table />
+      <Table headers={tableHeaders} />
     </>
   );
 }
