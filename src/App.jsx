@@ -2,7 +2,6 @@ import { useState } from "react";
 import Header from "./components/Header";
 import InputSection from "./components/InputSection";
 import Table from "./components/Table";
-import { calculateInvestmentResults } from "./util/investment";
 
 function App() {
   const [investmentValues, setInvestmentValues] = useState({
@@ -15,7 +14,7 @@ function App() {
   function handleChange(event, valueType) {
     setInvestmentValues({
       ...investmentValues,
-      [`${valueType}`]: event.target.value,
+      [`${valueType}`]: +event.target.value,
     });
   }
 
