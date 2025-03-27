@@ -4,33 +4,30 @@ import InputSection from "./components/InputSection";
 import Table from "./components/Table";
 import { calculateInvestmentResults } from "./util/investment";
 
-let tableValues = [];
-
 function App() {
+  const [investmentValues, setInvestmentValues] = useState({
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
+  });
+
   function handleChange(event, valueType) {
     setInvestmentValues({
       ...investmentValues,
       [`${valueType}`]: event.target.value,
     });
-
-    tableValues = calculateInvestmentResults(investmentValues);
   }
 
-  const [investmentValues, setInvestmentValues] = useState({
-    initialInvestment: 0,
-    annualInvestment: 0,
-    expectedReturn: 0,
-    duration: 0,
-  });
+  const tableValues = calculateInvestmentResults(investmentValues);
 
   const tableHeaders = [
     "Year",
+    "Investment Value",
     "Interest (Year)",
     "Total Interest",
-    "Duration",
+    "Invested Captital",
   ];
-
-  tableValues.map((row) => console.log(row));
 
   return (
     <>

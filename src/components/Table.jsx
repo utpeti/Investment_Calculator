@@ -1,3 +1,5 @@
+import { formatter } from "../util/investment";
+
 export default function Table({ headers, rows }) {
   return (
     <table id="result">
@@ -13,9 +15,10 @@ export default function Table({ headers, rows }) {
           {rows.map((row) => (
             <tr>
               <td>{row.year}</td>
-              <td>{row.interest}</td>
-              <td>{row.valueEndOfYear}</td>
-              <td>{row.annualInvestment}</td>
+              <td>{formatter.format(row.valueEndOfYear)}</td>
+              <td>{formatter.format(row.interest)}</td>
+              <td>{formatter.format(100)}</td>
+              <td>{formatter.format(row.annualInvestment)}</td>
             </tr>
           ))}
         </tbody>
