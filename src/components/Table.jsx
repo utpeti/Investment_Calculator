@@ -12,10 +12,10 @@ export default function Table({ headers, rows }) {
         <tbody>
           {rows.map((row) => (
             <tr>
-              <td>{row.initialInvestment}</td>
+              <td>{row.year}</td>
+              <td>{row.interest}</td>
+              <td>{row.valueEndOfYear}</td>
               <td>{row.annualInvestment}</td>
-              <td>{row.expectedReturn}</td>
-              <td>{row.duration}</td>
             </tr>
           ))}
         </tbody>
