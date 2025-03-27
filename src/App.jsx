@@ -2,6 +2,9 @@ import { useState } from "react";
 import Header from "./components/Header";
 import InputSection from "./components/InputSection";
 import Table from "./components/Table";
+import { calculateInvestmentResults } from "./util/investment";
+
+let tableValues = [];
 
 function App() {
   function handleChange(event, valueType) {
@@ -9,6 +12,8 @@ function App() {
       ...investmentValues,
       [`${valueType}`]: event.target.value,
     });
+
+    tableValues = calculateInvestmentResults(investmentValues);
   }
 
   const [investmentValues, setInvestmentValues] = useState({
@@ -25,6 +30,8 @@ function App() {
     "Duration",
   ];
 
+  tableValues.map((row) => console.log(row));
+
   return (
     <>
       <Header
@@ -34,7 +41,7 @@ function App() {
         id="header"
       />
       <InputSection values={investmentValues} handleChange={handleChange} />
-      <Table headers={tableHeaders} />
+      <Table headers={tableHeaders} rows={tableValues} />
     </>
   );
 }

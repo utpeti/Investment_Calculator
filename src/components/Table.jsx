@@ -8,17 +8,18 @@ export default function Table({ headers, rows }) {
           ))}
         </tr>
       </thead>
-      {/*
+      {
         <tbody>
           {rows.map((row) => (
             <tr>
-              {row.map((data) => (
-                <td>{data}</td>
-              ))}
+              <td>{row.initialInvestment}</td>
+              <td>{row.annualInvestment}</td>
+              <td>{row.expectedReturn}</td>
+              <td>{row.duration}</td>
             </tr>
           ))}
         </tbody>
-      */}
+      }
     </table>
   );
 }
